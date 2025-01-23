@@ -37,7 +37,7 @@ public class HelloApplication extends Application {
             farmerHead.setFill(Color.TAN);
             Path beard = new Path();
             beard.getElements().add(new MoveTo(405, 230));
-            beard.getElements().add(new CubicCurveTo(395, 240, 390, 260, 405, 270));
+            beard.getElements().add(new CubicCurveTo(395, 40, 390, 260, 405, 270));
             beard.setFill(Color.BROWN);
 
             // Create the grapevine (simplified)
@@ -53,16 +53,32 @@ public class HelloApplication extends Application {
             grape1.setFill(Color.PURPLE);
             grape2.setFill(Color.PURPLE);
 
+            // Create bananas
+            // Create a stem first
+            Path bananaStem = new Path();
+            bananaStem.getElements().add(new MoveTo(550, 200));
+            bananaStem.getElements().add(new LineTo(550, 250));
+            bananaStem.setStroke(Color.BROWN);
+            bananaStem.setStrokeWidth(5);
+
+            // Create multiple bananas with slight curves
+            Circle banana1 = new Circle(550, 260, 10);
+            banana1.setFill(Color.YELLOW);
+            Circle banana2 = new Circle(560, 270, 10);
+            banana2.setFill(Color.YELLOW);
+            Circle banana3 = new Circle(540, 280, 10);
+            banana3.setFill(Color.YELLOW);
+
             // Create a Pane to hold the shapes
             Pane root = new Pane();
             root.getChildren().addAll(background, ground, sun, cloud1, cloud2,
                     farmerBody, farmerHead, beard, grapevine,
-                    grape1, grape2);
+                    grape1, grape2, bananaStem, banana1, banana2, banana3);
 
             // Create a Scene
             Scene scene = new Scene(root, 600, 400);
 
-            // Set the scene and title for the stage
+            // Set the scene and title
             primaryStage.setScene(scene);
             primaryStage.setTitle("Vector Landscape");
             primaryStage.show();
